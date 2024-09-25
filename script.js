@@ -22,7 +22,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     hamburger.addEventListener('click', function() {
         navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        event.stopPropagation(); // 阻止事件冒泡
     });
+    document.addEventListener("click", function () {
+      if(navLinks.style.display === 'flex'){
+        navLinks.style.display =  'none';
+      }
+    });
+
+
 //报名
     const signupForm = document.getElementById('signupForm');
     signupForm.addEventListener('submit', function(e) {
